@@ -1,0 +1,79 @@
+{
+  "name": "n8n-nodes-influxdb",
+  "version": "0.1.0",
+  "description": "n8n community node for InfluxDB v2.x with comprehensive operations support",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "influxdb",
+    "influxdb2",
+    "time-series",
+    "database"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/yourusername/n8n-nodes-influxdb",
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/n8n-nodes-influxdb.git"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "format": "prettier --write \"**/*.{ts,json,md}\"",
+    "lint": "eslint --ext .ts .",
+    "lint:fix": "eslint --ext .ts . --fix",
+    "test": "jest",
+    "test:unit": "jest tests/unit",
+    "test:integration": "jest tests/integration",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "typecheck": "tsc --noEmit",
+    "verify": "npm run lint && npm run typecheck && npm run test",
+    "prepublishOnly": "npm run build && npm run verify"
+  },
+  "files": [
+    "dist",
+    "credentials",
+    "nodes",
+    "!*.ts",
+    "dist/**/*"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/InfluxDbApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/InfluxDb/InfluxDb.node.js"
+    ]
+  },
+  "dependencies": {
+    "@influxdata/influxdb-client": "^1.33.2",
+    "@influxdata/influxdb-client-apis": "^1.33.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.19",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.1",
+    "jest": "^29.7.0",
+    "n8n-workflow": "^1.29.0",
+    "nock": "^13.5.1",
+    "prettier": "^3.2.5",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
